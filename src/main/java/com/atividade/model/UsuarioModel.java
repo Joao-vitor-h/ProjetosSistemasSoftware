@@ -1,5 +1,7 @@
 package com.atividade.model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author JoaoVitor
@@ -9,12 +11,18 @@ public class UsuarioModel {
     private String senha;
     private String email;
     private String tipoUsuario;
+    private LocalDate dataCadastro;
+    private int totalNotificacao;
+    private int notificacoesLidas;
     
     public UsuarioModel(String nome, String senha, String email, String tipoUsuario) {
         this.nome = nome;
         this.senha = senha;
         this.email = email;
         this.tipoUsuario = tipoUsuario;
+        this.dataCadastro = LocalDate.now();
+        this.totalNotificacao = 0;
+        this.notificacoesLidas = 0;
     }
     
     public String getNome() {
@@ -27,6 +35,26 @@ public class UsuarioModel {
     
     public String getTipoUsuario() {
         return tipoUsuario;
+    }
+    
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+    
+    public int getTotalNoficacao() {
+        return totalNotificacao;
+    }
+    
+    public int getNotificacaoLidas() {
+        return notificacoesLidas;
+    }
+    
+    public void adicionarNotificacao() {
+        this.totalNotificacao++;
+    }
+    
+    public void adicionarNotificacaoLida() {
+        this.notificacoesLidas++;
     }
     
     public void setTipoUsuario(String tipoUsuario) {
