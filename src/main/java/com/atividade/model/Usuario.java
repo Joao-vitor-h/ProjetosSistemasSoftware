@@ -77,13 +77,6 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
     
-    public void setSenha(String senha, String senha2) {
-        if(!(senha.equals(senha2))) {
-            throw new RuntimeException("Erro de confirmacao de senha.");
-        }
-        this.senha = senha;
-    }
-    
     @Override
     public String toString() {
         return "USUARIO: " + nome + " - E-MAIL: " + email + " - SENHA: " + senha +
