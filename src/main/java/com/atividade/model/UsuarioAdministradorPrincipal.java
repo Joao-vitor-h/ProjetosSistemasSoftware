@@ -8,17 +8,18 @@ import com.atividade.interfaces.RegraUsuario;
 import com.atividade.interfaces.RegraUsuarioAdministradorEvoluido;
 import com.atividade.interfaces.RegraUsuarioAdministradorPrincipal;
 import com.atividade.interfaces.UsuarioRepository;
+import java.util.Optional;
 
 /**
  *
  * @author JoaoVitor
  */
 
-// Nessa classe vou usar o padrão singleton, pois só pode haver uma instância da mesma.
+// Nessa classe utilizei o padrão de projeto Singleton adaptado.
 
 public class UsuarioAdministradorPrincipal implements RegraUsuario, 
-                                                     RegraUsuarioAdministradorEvoluido,
-                                                     RegraUsuarioAdministradorPrincipal {
+                                                      RegraUsuarioAdministradorEvoluido,
+                                                      RegraUsuarioAdministradorPrincipal {
     
     // Mandar notificações, autorizar usuários e evoluir ou rebaixar usuários.
     @Override
@@ -44,5 +45,10 @@ public class UsuarioAdministradorPrincipal implements RegraUsuario,
     @Override
     public void rebaixarUsuario(Usuario usuario) {
         // Precisa de implementação.
+    }
+    
+    @Override
+    public String toString() {
+        return "ADMINISTRADOR PRINCIPAL";
     }
 }

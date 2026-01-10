@@ -16,4 +16,9 @@ public class UsuarioPadrao implements RegraUsuario {
     public boolean alterarSenha(String senha, String senha2) {
         return false; // Precisa de implementação.
     }
+    
+    @Override
+    public String toString() {
+        return "PADRAO";
+    }
 }
