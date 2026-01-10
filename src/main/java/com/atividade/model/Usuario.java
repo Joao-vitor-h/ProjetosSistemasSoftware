@@ -1,5 +1,6 @@
 package com.atividade.model;
 
+import com.atividade.interfaces.RegraUsuario;
 import java.time.LocalDate;
 
 /**
@@ -13,18 +14,12 @@ public class Usuario {
     private String nome;
     private String senha;
     private String email;
-    private String tipoUsuario;
-    /**
-    *
-    * O tipo do atributo acima irá mudar para "RegraUsuario", pois a partir da instância
-    * definida o usuário terá acesso a novas funcionalidades.
-    */
+    private RegraUsuario tipoUsuario; // Define qual se o usuário é ADM, ADM-EVOLUIDO ou PADRAO.
     private LocalDate dataCadastro;
     private int totalNotificacao;
     private int notificacoesLidas;
-    private static int superAdm = 0; // Isso aqui vai sumir.
     
-    public Usuario(String nome, String senha, String email, String tipoUsuario) {
+    public Usuario(String nome, String senha, String email, RegraUsuario tipoUsuario) {
         this.nome = nome;
         this.senha = senha;
         this.email = email;
@@ -32,9 +27,6 @@ public class Usuario {
         this.dataCadastro = LocalDate.now();
         this.totalNotificacao = 0;
         this.notificacoesLidas = 0;
-        if(superAdm == 0) {
-            superAdm = 1; // Quer dizer que recebeu o primeiro usuário.
-        }
     }
     
     public String getNome() {
@@ -45,7 +37,7 @@ public class Usuario {
         return email;
     }
     
-    public String getTipoUsuario() {
+    public RegraUsuario getTipoUsuario() {
         return tipoUsuario;
     }
     
@@ -61,20 +53,12 @@ public class Usuario {
         return notificacoesLidas;
     }
     
-    public static int getSuperAdm() {
-        return superAdm;
-    }
-    
     public void adicionarNotificacao() {
         this.totalNotificacao++;
     }
     
     public void adicionarNotificacaoLida() {
         this.notificacoesLidas++;
-    }
-    
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
     
     @Override

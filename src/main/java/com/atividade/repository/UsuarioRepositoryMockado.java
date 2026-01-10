@@ -60,6 +60,11 @@ public class UsuarioRepositoryMockado implements UsuarioRepository {
     }
     
     @Override
+    public int tamanhoListaUsuarios() {
+        return listaUsuarios.size();
+    }
+    
+    @Override
     public List<Usuario> getUsuarios() {
         if(listaUsuarios.isEmpty()) {
             throw new RuntimeException("Não existem usuários cadastrados.");

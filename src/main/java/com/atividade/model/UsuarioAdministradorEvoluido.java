@@ -30,4 +30,9 @@ public class UsuarioAdministradorEvoluido implements RegraUsuario,
     public void autorizarUsuario(Usuario usuario) {
         // Precisa de implementação.
     }
+    
+    @Override
+    public String toString() {
+        return "ADMINISTRADOR EVOLUIDO";
+    }
 }

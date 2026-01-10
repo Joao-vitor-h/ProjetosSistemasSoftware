@@ -21,5 +21,7 @@ public interface UsuarioRepository {
     
     abstract Optional<Usuario> buscarUsuarioPorEmail(String email);
     
+    abstract int tamanhoListaUsuarios();
+    
     abstract List<Usuario> getUsuarios();
 }
