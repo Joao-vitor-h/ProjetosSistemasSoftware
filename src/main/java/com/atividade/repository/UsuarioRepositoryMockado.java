@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.atividade.repository;
 
 import com.atividade.interfaces.UsuarioRepository;
@@ -14,6 +10,7 @@ import java.util.Optional;
  *
  * @author JoaoVitor
  */
+
 public class UsuarioRepositoryMockado implements UsuarioRepository {
     private List<Usuario> listaUsuarios;
     

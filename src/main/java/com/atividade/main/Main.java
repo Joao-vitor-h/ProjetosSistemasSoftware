@@ -8,6 +8,7 @@ import com.atividade.repository.UsuarioRepositoryMockado;
  *
  * @author JoaoVitor
  */
+
 public class Main {
 
     public static void main(String[] args) {
