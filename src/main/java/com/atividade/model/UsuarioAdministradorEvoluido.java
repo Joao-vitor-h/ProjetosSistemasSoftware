@@ -1,7 +1,5 @@
 package com.atividade.model;
 
-import com.atividade.interfaces.RegraUsuario;
-import com.atividade.interfaces.RegraUsuarioAdministradorEvoluido;
 import com.atividade.interfaces.UsuarioRepository;
 
 /**
@@ -10,6 +8,10 @@ import com.atividade.interfaces.UsuarioRepository;
  */
 
 public class UsuarioAdministradorEvoluido extends Permissoes {
+    
+    public UsuarioAdministradorEvoluido(Usuario usuario) {
+        super(usuario);
+    }
     
     // Mandar notificações e autorizar usuários.
     
@@ -20,7 +22,7 @@ public class UsuarioAdministradorEvoluido extends Permissoes {
     
     @Override
     public void autorizarUsuario(Usuario usuario) {
-        // Precisa de implementação.
+        System.out.printf("Usuario: %s autorizado.", usuario.getNome());
     }
     
     @Override

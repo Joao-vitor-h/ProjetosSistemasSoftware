@@ -1,31 +1,33 @@
 package com.atividade.model;
 
-// @author JoaoVitor
+import com.atividade.interfaces.UsuarioRepository;
 
-public abstract class Permissoes implements RegraUsuarioAdministradorEvoluido, RegraUsuarioAdministradorPadrao {
-      protected Usuario usuario;
+/**
+ *
+ * @author JoaoVitor
+ */
 
-      public Permissoes(Usuario usuario) {
-            this.usuario = usuario;
-      }
+public abstract class Permissoes {
+    protected Usuario usuario;
+    
+    public Permissoes(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-      @Override
-      public void enviarMensagem(UsuarioRepository repository) {
-          throw new RuntimeException("Não é possível enviar mensagem.");
-      }
-      
-      @Override
-      public void autorizarUsuario(Usuario usuario) {
-          throw new RuntimeException("Não é possível autorizar usuario.");
-      }
+    public void enviarMensagem(UsuarioRepository repository) {
+        throw new RuntimeException("Você não tem permissão para enviar mensagem.");
+    }
 
-      @Override
-      public void evoluirUsuario(Usuario usuario) {
-          throw new RuntimeException("Não é possível evoluir usuario.");
-      }
-      
-      @Override
-      public void rebaixarUsuario(Usuario usuario) {
-          throw new RuntimeException("Não é possível rebaixar usuario.");
-      }
+    public void autorizarUsuario(Usuario usuario) {
+        throw new RuntimeException("Você não tem permissão para autorizar usuario.");
+    }
+
+    // Função responsável por evoluir o usuário.
+    public void atribuirPermissaoUsuario(Usuario usuario) {
+        throw new RuntimeException("Você não tem permissão para evoluir usuario.");
+    }
+    // Função responsável por rebaixar o usuário.
+    public void retirarPermissaoUsuario(Usuario usuario) {
+        throw new RuntimeException("Você não tem permissão para rebaixar usuario.");
+    }
 }

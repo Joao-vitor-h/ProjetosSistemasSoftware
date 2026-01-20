@@ -13,6 +13,7 @@ import java.util.Optional;
 
 public class UsuarioRepositoryMockado implements UsuarioRepository {
     private List<Usuario> listaUsuarios;
+    private static int tamanhoListaUsuarios = 0;
     
     public UsuarioRepositoryMockado() {
         listaUsuarios = new ArrayList<Usuario>();
@@ -24,6 +25,7 @@ public class UsuarioRepositoryMockado implements UsuarioRepository {
             throw new RuntimeException("Usuário está nulo.");
         }
         listaUsuarios.add(usuario);
+        tamanhoListaUsuarios = listaUsuarios.size();
     }
     
     @Override
@@ -56,9 +58,8 @@ public class UsuarioRepositoryMockado implements UsuarioRepository {
         return Optional.empty();
     }
     
-    @Override
-    public int tamanhoListaUsuarios() {
-        return listaUsuarios.size();
+    public static int tamanhoListaUsuarios() {
+        return tamanhoListaUsuarios;
     }
     
     @Override
