@@ -9,14 +9,9 @@ import com.atividade.interfaces.UsuarioRepository;
  * @author JoaoVitor
  */
 
-public class UsuarioAdministradorEvoluido implements RegraUsuario, 
-                                                     RegraUsuarioAdministradorEvoluido {
+public class UsuarioAdministradorEvoluido extends Permissoes {
     
     // Mandar notificações e autorizar usuários.
-    @Override
-    public boolean alterarSenha(String senha, String senha2) {
-        return false; // Precisa de implementação.
-    }
     
     @Override
     public void enviarMensagem(UsuarioRepository repository) {
