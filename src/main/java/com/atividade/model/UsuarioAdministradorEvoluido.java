@@ -1,7 +1,5 @@
 package com.atividade.model;
 
-import com.atividade.interfaces.RegraUsuario;
-import com.atividade.interfaces.RegraUsuarioAdministradorEvoluido;
 import com.atividade.interfaces.UsuarioRepository;
 
 /**
@@ -9,14 +7,13 @@ import com.atividade.interfaces.UsuarioRepository;
  * @author JoaoVitor
  */
 
-public class UsuarioAdministradorEvoluido implements RegraUsuario, 
-                                                     RegraUsuarioAdministradorEvoluido {
+public class UsuarioAdministradorEvoluido extends Permissoes {
+    
+    public UsuarioAdministradorEvoluido(Usuario usuario) {
+        super(usuario);
+    }
     
     // Mandar notificações e autorizar usuários.
-    @Override
-    public boolean alterarSenha(String senha, String senha2) {
-        return false; // Precisa de implementação.
-    }
     
     @Override
     public void enviarMensagem(UsuarioRepository repository) {
@@ -25,7 +22,7 @@ public class UsuarioAdministradorEvoluido implements RegraUsuario,
     
     @Override
     public void autorizarUsuario(Usuario usuario) {
-        // Precisa de implementação.
+        System.out.printf("Usuario: %s autorizado.", usuario.getNome());
     }
     
     @Override

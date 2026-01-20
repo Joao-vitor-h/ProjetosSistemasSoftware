@@ -2,8 +2,6 @@ package com.atividade.presenter;
 
 import com.atividade.interfaces.UsuarioRepository;
 import com.atividade.model.Usuario;
-import com.atividade.model.UsuarioAdministradorPrincipal;
-import com.atividade.model.UsuarioPadrao;
 import com.atividade.view.CadastroUsuarioView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,20 +61,11 @@ public class SalvarUsuarioPresenter {
         String confirmacaoSenha = telaCadastro.getTxtConfirmarSenha().getText();
         String email = telaCadastro.getTxtEmail().getText();
         
-        if(nome.isEmpty() || senha.isEmpty() || confirmacaoSenha.isEmpty() || email.isEmpty()) {
-            throw new RuntimeException("Campos não foram preenchidos.");
-        }
-        
         if(!(senha.equals(confirmacaoSenha))) {
             throw new RuntimeException("As senhas não são iguais.");
         }
         
-        if(repository.tamanhoListaUsuarios() == 0) {
-            usuario = new Usuario(nome, senha, email, new UsuarioAdministradorPrincipal());
-        } 
-        else {
-            usuario = new Usuario(nome, senha, email, new UsuarioPadrao());
-        }
+        usuario = new Usuario(nome, senha, email);
         
         repository.salvarUsuario(usuario);
         JOptionPane.showMessageDialog(telaCadastro, "Usuario " + usuario.getEmail() + 
