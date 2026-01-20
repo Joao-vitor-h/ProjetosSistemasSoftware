@@ -13,15 +13,9 @@ import java.util.Optional;
 
 // Nessa classe utilizei o padrão de projeto Singleton adaptado.
 
-public class UsuarioAdministradorPrincipal implements RegraUsuario, 
-                                                      RegraUsuarioAdministradorEvoluido,
-                                                      RegraUsuarioAdministradorPrincipal {
+public class UsuarioAdministradorPrincipal extends Permissoes {
     
     // Mandar notificações, autorizar usuários e evoluir ou rebaixar usuários.
-    @Override
-    public boolean alterarSenha(String senha, String senha2) {
-        return false; // Precisa de implementação.
-    }
     
     @Override
     public void enviarMensagem(UsuarioRepository repository) {
